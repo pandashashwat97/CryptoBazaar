@@ -13,6 +13,7 @@ struct SerachBarView: View {
     var body: some View {
         TranscribedTextFieldView(color: Color.text, searchText: $searchString, placeHolderColor: Color.text, micIconWidth: 15)
             .shadow(color: Color.black.opacity(0.25), radius: 10, x:0, y:0)
+            .autocorrectionDisabled(true)
     }
 }
 

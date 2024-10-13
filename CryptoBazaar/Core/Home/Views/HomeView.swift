@@ -11,7 +11,6 @@ struct HomeView: View {
     @EnvironmentObject private var vm: ViewModel
     @State private var coinData: [CoinModel] = []
     @State private var showPortfolio: Bool = false
-    @State var searchText: String = ""
     var body: some View {
         ZStack {
             // background color
@@ -19,7 +18,8 @@ struct HomeView: View {
             // content layer
             VStack{
                 headerView()
-                SerachBarView(searchString: $searchText)
+                HomeStatsView(showPortfolio: $showPortfolio)
+                SerachBarView(searchString: $vm.searchText)
                 columnTitles()
                 .padding(EdgeInsets(top: 0, leading: 40, bottom: 0, trailing: 20))
                 if !showPortfolio {
