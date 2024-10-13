@@ -35,6 +35,7 @@ class ViewModel: ObservableObject {
         
         $searchText
             .combineLatest(dataService.$allCoins)
+            // waits 0.5 seconds before the rest of the code is executed
             .debounce(for: .seconds(0.5), scheduler: DispatchQueue.main)
             .map(filterCoins)
             .sink { [weak self] (returnedCoins) in
